@@ -22,7 +22,7 @@ import { formatApy } from "@/lib/utils/formatters";
 
 export const Scene01Awakening: React.FC = () => {
   const { calculatedApy } = useLayer5Staking();
-  const [calcAmount, setCalcAmount] = useState<number>(2500);
+  const [calcAmount, setCalcAmount] = useState<number>(0);
 
   // Simulated live on-chain events
   const [events, setEvents] = useState<Array<{ id: number; type: string; user: string; amount: string; time: string }>>([]);

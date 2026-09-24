@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useBlockNumber } from "wagmi";
 import { protocolConfig } from "@/lib/blockchain/config";
 import {
   Sparkles,
@@ -24,16 +25,8 @@ interface StreamEvent {
 
 export const Scene06LiveActivity: React.FC = () => {
   const [events, setEvents] = useState<StreamEvent[]>([]);
-
-  const [liveBlockHeight, setLiveBlockHeight] = useState(19420840);
-
-  // Periodically increment block height for live network telemetry
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setLiveBlockHeight((prev) => prev + 1);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, []);
+  const { data: blockNumberData } = useBlockNumber({ watch: true });
+  const liveBlockHeight = blockNumberData ? Number(blockNumberData) : 0;
 
   return (
     <section

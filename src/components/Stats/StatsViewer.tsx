@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLayer5Staking } from "@/lib/hooks/useLayer5Staking";
+import { useBlockNumber } from "wagmi";
 import { formatTokenAmount, formatApy } from "@/lib/utils/formatters";
 import { protocolConfig } from "@/lib/blockchain/config";
 import {
@@ -34,10 +35,11 @@ interface ApiStatsResponse {
 
 export const StatsViewer: React.FC = () => {
   const { totalStaked, totalStakers, calculatedApy, stakeDecimals } = useLayer5Staking();
+  const { data: blockNumberData } = useBlockNumber({ watch: true });
+  const liveBlock = blockNumberData ? Number(blockNumberData) : 0;
   const [apiStats, setApiStats] = useState<ApiStatsResponse | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
   const [timeframe, setTimeframe] = useState<"24H" | "7D" | "30D" | "ALL">("24H");
-  const [liveBlock, setLiveBlock] = useState<number>(19420815);
 
   useEffect(() => {
     fetch("/api/stats")
@@ -46,13 +48,6 @@ export const StatsViewer: React.FC = () => {
         if (data) setApiStats(data);
       })
       .catch(() => {});
-
-    // Ticking block counter for dynamic on-chain feel
-    const blockInterval = setInterval(() => {
-      setLiveBlock((prev) => prev + 1);
-    }, 4500);
-
-    return () => clearInterval(blockInterval);
   }, []);
 
   const copyToClipboard = (text: string | undefined, id: string) => {
@@ -317,9 +312,11 @@ export const StatsViewer: React.FC = () => {
               </button>
             </div>
             <div className="text-[#1C1B18] font-bold truncate">
-              {protocolConfig.stakingContractAddress}
+              {protocolConfig.stakingContractAddress || "Pending Deployment"}
             </div>
-            <span className="text-[10px] text-[#283615] block font-semibold">Verified Bytecode</span>
+            <span className="text-[10px] text-[#283615] block font-semibold">
+              {protocolConfig.stakingContractAddress ? "Verified Bytecode" : "Awaiting Deployment"}
+            </span>
           </div>
 
           <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-black/[0.06] space-y-2">

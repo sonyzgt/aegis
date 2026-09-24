@@ -315,7 +315,7 @@ export const StakingDashboard: React.FC = () => {
           <div className="min-w-0 rounded-2xl border border-[#283615]/35 bg-white p-4 sm:p-5 shadow-[0_4px_20px_rgba(40,54,21,0.06)] hover:border-[#283615] transition duration-200">
             <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">Estimated APY</dt>
             <dd className="mt-2 truncate font-display text-2xl sm:text-3xl text-[#283615]">
-              {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "38.4% APY"}
+              {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "0.00%"}
             </dd>
             <dd className="mt-1.5 truncate font-mono text-[11px] text-[#283615]/80 font-medium">streaming block-by-block drip</dd>
           </div>
@@ -617,7 +617,7 @@ export const StakingDashboard: React.FC = () => {
               {/* Denar Signature Callout Box */}
               <div className="rounded-2xl border border-[#E5E0D5] bg-[#FAF8F5] p-4 text-[12.5px] leading-relaxed text-[#6B665E] space-y-1">
                 <p className="font-medium text-[#1C1B18]">
-                  Estimated APY — {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "38.4%"}
+                  Estimated APY — {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "0.00%"}
                 </p>
                 <p>
                   An estimate, recomputed dynamically from your staked USDG, the reward stream rate, and the circulating pool. Imbal hasil mengalir setiap blok tanpa jeda lockup.
