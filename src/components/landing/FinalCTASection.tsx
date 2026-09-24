@@ -168,17 +168,7 @@ export const FinalCTASection: React.FC = () => {
                     <ArrowUpRight className="w-3 h-3" />
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://github.com/sonyzgt/L5"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#1C1B18] transition-colors flex items-center gap-1"
-                  >
-                    <span>GitHub</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </a>
-                </li>
+
                 <li>
                   <div className="flex items-center gap-2 pt-2 text-[#283615]">
                     <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />

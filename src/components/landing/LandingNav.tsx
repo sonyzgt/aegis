@@ -261,16 +261,6 @@ export const LandingNav: React.FC = () => {
                 <span>X (@aegistak)</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-
-              <a
-                href="https://github.com/sonyzgt/L5"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#1C1B18] transition-colors flex items-center gap-1"
-              >
-                <span>GitHub</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
             </div>
           </motion.div>
         )}
