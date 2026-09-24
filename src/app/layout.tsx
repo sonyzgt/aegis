@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://layerfive.io"),
+  metadataBase: new URL("https://aegistak.com"),
   title: "Aegis — Staking on Robinhood Chain",
   description: "Aegis is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
   keywords: ["Aegis", "Robinhood Chain", "Staking", "DeFi", "Web3", "Ethereum", "EVM"],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aegis — Staking on Robinhood Chain",
     description: "Aegis is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
-    url: "https://layerfive.io",
+    url: "https://aegistak.com",
     siteName: "Aegis Protocol",
     images: [
       {
